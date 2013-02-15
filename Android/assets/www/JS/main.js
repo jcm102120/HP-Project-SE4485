@@ -30,18 +30,30 @@ $(document).ready(function(){
  	
 });
 
+function getSess(){
+	window.location = "checkInInfo.html";
+}
+
 function getSession(){
 	 		var query = new Parse.Query(sessions);
 	 		
-	 		var sessID = document.getElementById('eventId');
-	 		$("#disSess").html("hello world");
+	 		var sessID = document.getElementById('eventID').value;
+	 		
 	 		query.find({
 	 			success:function(results){
 	 				console.dir(results);
+	 				var s ="";
 	 				for(var i=0, len=results.length; i<len;i++){
 	 					var sess = results[i];
-	 					if(sess.get("ID") == sessID)
-	 						$("#disSess").html(sessID);
+	 					if(sess.get("ID") == sessID){
+	 						s += "<p>";
+	 						s += "<b>Event ID:</b>" + sess.get("ID") + "<br>";
+	 						s += "<b>Name:</b>" + sess.get("Name") + "<br>";
+	 						s += "<b>Time:</b>" + sess.get("Time") + "<br>";
+	 						s += "<p>";
+	 						$("#disSess").html(s);
+	 						
+	 					}
 	 				}
 	 			},
 	 			error:function(error){

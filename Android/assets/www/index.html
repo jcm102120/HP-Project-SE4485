@@ -2,22 +2,33 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>HP Conference</title>
-		<script type="text/javascript" charset="utf-8" src="js/libs/cordova-2.0.0.js"></script>
-		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" charset="utf-8" src="cordova-2.4.0.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/index.css" />
+		<script src="JS/parse-1.js"></script>
+		<!--<script src="http://www.parsecdn.com/js/parse-1.2.1.min.js"></script>-->
+		<script src="JS/main.js"></script>
 	</head>
 	
 	<body>
 		<center>
+			<!--<div id="sessCall"></div>-->
+			
+			
 			<div>
 				<font id="tech">TechCon</font>
-			</div>
-			<div>
+				<br>
 				<font size="2.2em">Check In</font>
 			</div>
-			<div id="searchbar">
-				
+			<br><br><br>
+			<div>
+				Event ID: <input type="text" id="eventID">
+				<button id="searchBtn" class="btn" style="width=2000px" onClick="getSession();">Search</button>
 			</div>
+			
+			<p id="disSess"></p>
 		</center>	
 	</body>
 </html>
